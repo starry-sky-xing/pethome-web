@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<script type="text/javascript" src="./plugins/vue/dist/vue.min.js"></script>
+	<script type="text/javascript" src="./plugins/axios/dist/axios.min.js"></script>
+	<!--引入公共的js-->
+	<script type="text/javascript" src="./js/common.js"></script>
+</head>
+<body>
+ <div id="app"></div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#app",
+		mounted:function () {
+			//获取url中的code
+			var param = getParam();
+			//发送code处理回调函数
+			this.$http.post("/wechat/handleCallback",param).then(res=>{
+			    console.debug(res.data)
+			}).catch(()=>{})
+        }
+	})
+</script>
+</html>

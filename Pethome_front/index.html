@@ -15,18 +15,24 @@
 		<link href="./css/hmstyle.css" rel="stylesheet" type="text/css" />
 		<script src="./AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="./AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-
+		<script type="text/javascript" src="./plugins/vue/dist/vue.min.js"></script>
+		<script type="text/javascript" src="./plugins/axios/dist/axios.min.js"></script>
+		<!--引入公共的js-->
+		<script type="text/javascript" src="./js/common.js"></script>
 	</head>
 
 	<body>
-		<div class="hmtop">
+		<div class="hmtop"  id="app">
 			<!--顶部导航条 -->
 			<div class="am-container header">
 				<ul class="message-l">
 					<div class="topMessage">
-						<div class="menu-hd">
-							<a href="#" target="_top" class="h">亲，请登录</a>
-							<a href="./register.html" target="_top">免费注册</a>
+						<div class="menu-hd" v-if="!token1">
+							<a href="login.html" target="_top" class="h">亲，请登录</a>
+							<a href="register.html" target="_top">免费注册</a>
+						</div>
+						<div class="menu-hd" v-else>
+							欢迎{{this.token1}}登录系统
 						</div>
 					</div>
 				</ul>
@@ -44,6 +50,21 @@
 						<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 				</ul>
 				</div>
+			<script type="text/javascript">
+				new Vue({
+					el:"#app",
+					data:{
+                        token1:""
+					},
+					mounted(){
+					    //取出来是json字符串
+                        let token = localStorage.getItem("token");
+                        if(token){
+                            this.token1=token;
+						}
+					}
+				})
+			</script>
 
 				<!--悬浮搜索框-->
 
