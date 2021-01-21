@@ -84,7 +84,7 @@
                     let {success,msg,resultObj}=res.data;
                     //console.debug(success,msg,resultObj);
                     //存储token
-					localStorage.setItem("token",resultObj);
+					localStorage.setItem("token",resultObj.token);
 					//跳转主页面
 					location.href="index.html";
 				})

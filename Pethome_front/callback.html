@@ -18,7 +18,18 @@
 			var param = getParam();
 			//发送code处理回调函数
 			this.$http.post("/wechat/handleCallback",param).then(res=>{
-			    console.debug(res.data)
+			    //console.debug(res.data);
+				let{success,msg,resultObj}=res.data;
+				//如果没绑定用户 success为true apenid不为空
+				if(success&&resultObj.openid){
+					//跳转绑定页面
+					location.href="./binding.html?openid="+openid;
+				}else if(success&&resultObj.token){ //如果返回的有token 就是直接登录
+				    //保存token
+					localStorage.setItem("token",resultObj.token);
+					//跳转主页面 登录成功
+					location.href="./index.html";
+				}
 			}).catch(()=>{})
         }
 	})
