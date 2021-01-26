@@ -148,7 +148,8 @@
                 phone: "",
                 code: "",
                 password: "",
-                passwordRepeat: ""
+                passwordRepeat: "",
+				type: 1
             },
             //初始化不禁用按钮
             disabled: false,
@@ -160,12 +161,14 @@
         methods: {
             //注册
             register(){
-                console.debug(this.user)
+                //console.debug(this.user)
                 this.$http.post("/user/register", this.user).then((res) => {
                     let {success, msg} = res.data;
                     if(!success){
                         this.errorMsg = msg;
-                    }
+                    }else {
+                        location.href="./login.html";
+					}
                 });
             },
             //发送手机验证码

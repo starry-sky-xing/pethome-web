@@ -11,7 +11,10 @@ import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
 import department from './views/org/Department'
 import ShopReg from './views/org/ShopReg'
-
+import Product from './views/product/Product'
+import PendingMessage from './views/pet/PendingMessage.vue'
+import handled from './views/pet/Handled.vue'
+import Pet from './views/pet/Pet.vue'
 
 let routes = [
     {
@@ -53,6 +56,27 @@ let routes = [
         leaf: true,//只有一个节点
         children: [
             { path: '/department', component: department, name: '部门列表' },
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '服务管理',
+        iconCls: 'el-icon-message',//图标样式class
+        leaf: true,//只有一个节点
+        children: [
+            { path: '/Product', component: Product, name: '服务管理' },
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '宠物管理',
+        iconCls: 'el-icon-message',//图标样式class
+        children: [
+            { path: '/pendingMessage', component: PendingMessage, name: '待处理寻主信息' },
+            { path: '/handled', component: handled, name: '已处理寻主信息' },
+            { path: '/pet', component: Pet, name: '宠物管理' },
         ]
     },
     {

@@ -58,10 +58,10 @@
             //NProgress.start();
             var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass,type:0};
             this.$http.post("/login",loginParams).then(res => {
-                console.debug(res);
+                //console.debug(res);
                 let {success,msg, resultObj} = res.data;
                 if(success){
-                    localStorage.setItem("token", resultObj);
+                    localStorage.setItem("token", resultObj.token);
                     this.$router.push("/");
                 }else{
                     this.$message({

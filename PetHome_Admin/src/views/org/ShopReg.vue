@@ -17,19 +17,19 @@
                           placeholder="请输入地址！"></el-input>
             </el-form-item>
 
-             <el-form-item prop="logo" label="店铺Logo">
-                 <el-upload
-                         class="upload-demo"
-                         action="/api/dfs/upload"
-                         :on-preview="handlePreview"
-                         :on-remove="handleRemove"
-                         :on-success="handleSuccess"
-                         :file-list="fileList"
-                         list-type="picture">
-                     <el-button size="small" type="primary">点击上传</el-button>
-                     <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-                 </el-upload>
-             </el-form-item>
+            <el-form-item prop="logo" label="店铺Logo">
+                <el-upload
+                        class="upload-demo"
+                        action="/api/dfs/upload"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :on-success="handleSuccess"
+                        :file-list="fileList"
+                        list-type="picture">
+                    <el-button size="small" type="primary">点击上传</el-button>
+                    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                </el-upload>
+            </el-form-item>
 
             <h3>管理员信息设置</h3>
             <el-form-item prop="username" label="账号">

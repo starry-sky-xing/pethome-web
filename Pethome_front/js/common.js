@@ -1,5 +1,6 @@
 Vue.prototype.$http=axios;
 axios.defaults.baseURL="http://localhost";
+Vue.prototype.$fastBaseUrl="http://115.159.217.249:8888";
 
 /*axios前置拦截器， 只要你发送axios之前，都先执行此箭头函数*/
 axios.interceptors.request.use(config=>{

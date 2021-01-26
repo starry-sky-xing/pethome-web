@@ -23,7 +23,7 @@
 				//如果没绑定用户 success为true apenid不为空
 				if(success&&resultObj.openid){
 					//跳转绑定页面
-					location.href="./binding.html?openid="+openid;
+					location.href="./binding.html?openid="+resultObj.openid;
 				}else if(success&&resultObj.token){ //如果返回的有token 就是直接登录
 				    //保存token
 					localStorage.setItem("token",resultObj.token);

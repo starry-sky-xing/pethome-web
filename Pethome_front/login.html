@@ -31,10 +31,9 @@
 		<div class="login-box">
 
 			<h3 class="title">登录商城</h3>
-
-			<div class="clear"></div>
-
+			<h1 style="color: red" v-html="errorMsg"></h1>
 			<div class="login-form">
+
 				<form>
 					<div class="user-name">
 						<label for="user"><i class="am-icon-user"></i></label>
@@ -75,7 +74,9 @@
 		        username: "",
 				password: "",
 				type: 1
-			}
+			},
+            //错误提示
+            errorMsg:""
 		},
 		methods: {
 		    //用户登录
@@ -83,11 +84,15 @@
                 this.$http.post("/login",this.user).then(res=>{
                     let {success,msg,resultObj}=res.data;
                     //console.debug(success,msg,resultObj);
-                    //存储token
-					localStorage.setItem("token",resultObj.token);
-					//跳转主页面
-					location.href="index.html";
-				})
+					if(success){
+                        //存储token
+                        localStorage.setItem("token",resultObj.token);
+                        //跳转主页面
+                        location.href="index.html";
+                    }else {
+                        this.errorMsg = msg;
+                    }
+                })
 			}
 		}
 	})

@@ -12,6 +12,7 @@ import axios from 'axios'
 //添加$http 属性
 Vue.prototype.$http=axios;
 axios.defaults.baseURL = "/api";
+Vue.prototype.$fastBaseUrl="http://115.159.217.249:8888";
 
 import routes from './routes'
 
