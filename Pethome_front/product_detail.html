@@ -313,7 +313,7 @@
 	</div>
 	<li>
 		<div class="clearfix tb-btn tb-btn-buy theme-login">
-			<a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+			<a id="LikBuy" @click="topay" title="点此按钮到下一步确认购买信息" href="javascript:void(0);">立即购买</a>
 		</div>
 	</li>
 	<li>
@@ -1306,6 +1306,11 @@
         data: {
             product: {}
         },
+		methods:{
+            topay(){
+                location.href="./productPay.html";
+			}
+		},
         mounted() {
             //获取当前页面的参数
             var param = getParam();

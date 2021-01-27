@@ -77,6 +77,13 @@
                 <el-form-item label="售价" >
                 <el-input v-model="form.saleprice"></el-input>
                 </el-form-item>
+                <el-form-item label="支付类型" >
+                    <el-select v-model="form.paytype"  placeholder="请选择活动区域">
+                        <el-option label="垫付" value="1" ></el-option>
+                        <el-option label="银行转账" value="2"></el-option>
+                    </el-select>
+                </el-form-item>
+
                 <el-form-item prop="logo" label="宠物图片">
                     <el-upload
                             class="upload-demo"
@@ -152,7 +159,8 @@
                     saleprice:"",//售价
                     costprice:"",//成本价
                     intro:"",//宠物介绍
-                    adoptNotice:""//领养须知
+                    adoptNotice:"",//领养须知
+                    paytype: ""//支付方式
                 },
                 //分页列表
                 pendingMessages: [],
