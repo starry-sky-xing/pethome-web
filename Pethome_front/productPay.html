@@ -552,7 +552,7 @@
                     this.$http.post("/productOrder/submitOrder", this.order).then((res => {
                         if(res.data.success){
                             //document.getElementById("mydiv").innerHTML = res.data.result;
-                            $("#mydiv").html(res.data.result);
+                            $("#mydiv").html(res.data.resultObj);
 						}
                     }));
                 }
